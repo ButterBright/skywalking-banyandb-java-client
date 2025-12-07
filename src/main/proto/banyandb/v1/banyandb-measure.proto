@@ -176,10 +176,8 @@ message DataPointSpec {
 message DataPointValue {
   // timestamp is in the timeunit of milliseconds.
   google.protobuf.Timestamp timestamp = 1 [(validate.rules).timestamp.required = true];
-  // the order of tag_families' items match the measure schema
   // the order of tag_families' items match DataPointSpec
   repeated model.v1.TagFamilyForWrite tag_families = 2 [(validate.rules).repeated.min_items = 1];
-  // the order of fields match the measure schema
   // the order of fields match DataPointSpec
   repeated model.v1.FieldValue fields = 3;
   // the version of the data point
@@ -188,8 +186,6 @@ message DataPointValue {
 
 // WriteRequest is the request contract for write
 message WriteRequest {
-  // the metadata is required.
-  common.v1.Metadata metadata = 1 [(validate.rules).message.required = true];
   // the metadata is required only for the first request of gRPC stream.
   common.v1.Metadata metadata = 1;
   // the data_point is required.
