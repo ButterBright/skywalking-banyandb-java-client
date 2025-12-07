@@ -21,6 +21,7 @@ package banyandb.trace.v1;
 
 import "banyandb/v1/banyandb-common.proto";
 import "banyandb/v1/banyandb-model.proto";
+import "validate/validate.proto";
 
 option go_package = "github.com/apache/skywalking-banyandb/api/proto/banyandb/trace/v1";
 option java_package = "org.apache.skywalking.banyandb.trace.v1";
